@@ -1,0 +1,26 @@
+bundle exec chef-apply ./recipe.rb
+be chef-apply ./apply.rb --minimal-ohai
+
+chef-apply doesn't know anything about cookbook structure
+
+#!/usr/bin/env chef-apply
+adding the #!/usr/bin/env chef-apply doesn't require you to run as be chef-apply ./apply.rb instead you change it to be executable as chmod +x apply.rb
+then run directly using ./apply.rb
+
+lib/chef/resources/file.rb
+
+lib/chef/provider/file.rb
+
+chef-apply doensn't know how to do a cookbook file
+
+# Run in local mode
+be chef-client -z -c client.rb
+
+# Run cookbook in local mode
+be chef-client -z -c client.rb -r 'recipe[test]'
+
+# Structure is like cookbooks/<recipe-name>/
+  inside of that, it can have a metadata.rb file, and a recipes dir, with a default.rb in it.
+
+
+https://docs.chef.io/resources/file/
